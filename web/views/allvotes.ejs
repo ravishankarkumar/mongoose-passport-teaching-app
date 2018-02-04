@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="center">
+    <h1><%= title %></h1>
+    <ul >
+      <% for(var i=0; i<votes.length; i++) {%>
+        <li>
+          <span><%= votes[i].user_name %></span>: <span><%= votes[i].voted %></span>
+        </li>
+      <% } %>
+      </ul>
+  </body>
+</html>

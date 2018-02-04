@@ -6,3 +6,29 @@ body {
 a {
   color: #00B7FF;
 }
+
+.center{
+  text-align: center;
+}
+.voteBtnClass {
+  list-style-type: none;
+}
+.indBtn {
+  margin: 10px;
+  font-size: 18px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #666;
+  line-height: 54px;
+  border: 1px solid #424242;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.indBtn:hover {
+  color: #212121;
+  border: 1px solid #212121;
+}

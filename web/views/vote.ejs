@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="center">
+    <h1><%= title %></h1>
+    <p><%= message %></p>
+    <ul class="voteBtnClass">
+      <% for(var i=0; i<products.length; i++) {%>
+        <li><a class="indBtn" href='/vote/<%=userkey %>/<%=products[i].productkey %>'><%= products[i].name %></a></li>
+      <% } %>
+      </ul>
+  </body>
+</html>
