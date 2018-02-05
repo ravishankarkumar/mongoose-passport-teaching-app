@@ -143,6 +143,7 @@ router.get('/vote/:userkey', function(req, res, next) {
     res.render('errorpage', {title: 'Error Page', message: 'You are not authorised to access this link'});
   } else {
     const productConfig = config.product;
+    const user = config.users[userkey];
     let productsArray = [];
     for(let key in productConfig){
       if (productConfig.hasOwnProperty(key)) {
@@ -157,7 +158,9 @@ router.get('/vote/:userkey', function(req, res, next) {
       title: 'Vote for your favourite product',
       message: 'To edit your choices, come back to this link again.',
       products: productsArray,
-      userkey: userkey
+      userkey: userkey,
+      userName: user.name,
+      mobile: user.number
     });
   }
 });
@@ -201,6 +204,31 @@ router.get('/allvotes', function(req, res, next) {
     });
     res.render('allvotes', {title: 'Showing all votes', votes: dataToSend});
   });
+});
+
+
+router.post('/poll', function(req, res, next) {
+  const secretKey = req.body.secret;
+  if (!secretKey) {
+    res.redirect('/');
+    return;
+  } else if (!config || !config.users || !config.users[secretKey]) {
+    res.render('errorpage', {title: 'Error Page', message: 'You entered wrong secret key'});
+  } else {
+    res.redirect(`/vote/${secretKey}`);
+  }
+  // Vote.find(function(err,doc){
+  //   if(err){
+  //     res.render('errorpage', {title: 'Error Page', message: 'Some error occurred'});
+  //   };
+  //   const dataToSend = doc.map(indData => {
+  //     const productKey = indData.voted;
+  //     const productName = config.product[productKey].name;
+  //     indData.productName = productName;
+  //     return indData;
+  //   });
+  //   res.render('allvotes', {title: 'Showing all votes', votes: dataToSend});
+  // });
 });
 
 module.exports = router;

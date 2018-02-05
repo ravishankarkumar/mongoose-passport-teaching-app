@@ -7,10 +7,12 @@
   <body class="center">
     <h1><%= title %></h1>
     <p><%= message %></p>
+    <p>Your name: <%= userName %> and number <%= mobile %> will be recorded with this response</p>
     <ul class="voteBtnClass">
       <% for(var i=0; i<products.length; i++) {%>
         <li><a class="indBtn" href='/vote/<%=userkey %>/<%=products[i].productkey %>'><%= products[i].name %></a></li>
       <% } %>
-      </ul>
+    </ul>
+    <p>Or go <a href="/">home</a>.</p>
   </body>
 </html>

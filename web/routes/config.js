@@ -101,8 +101,8 @@ module.exports = {
     findme: {
       name: "FindMe Chip"
     },
-    experiment: {
-      name: "Please ignore me!"
-    }
+    // experiment: {
+    //   name: "Please ignore me!"
+    // }
   }
 }

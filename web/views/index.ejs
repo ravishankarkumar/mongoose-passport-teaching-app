@@ -4,9 +4,17 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
+  <body class="center">
     <h1><%= title %></h1>
-    <p><%= message %></p>
+    <form action="/poll" method="post">
+      <div>
+          <p>Enter the secret code sent to you on your whatsapp number</p>
+          <input type="text" name="secret" class="inputTextClass">
+      </div>
+
+      <button type="submit" class="indBtn">Continue</button>
+    </form>
+    <p>NOTE: I don't have Keshav's number, so he will receive his secret code on edmodo message</p>
     <a href="https://www.facebook.com/profile.php?id=100005107668320">Visit developers profile</a>
   </body>
 </html>
