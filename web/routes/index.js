@@ -194,7 +194,7 @@ router.get('/allvotes', function(req, res, next) {
       res.render('errorpage', {title: 'Error Page', message: 'Some error occurred'});
     };
     const dataToSend = doc.map(indData => {
-      const productKey = indData.key;
+      const productKey = indData.voted;
       const productName = config.product[productKey];
       indData.productName = productName;
       return indData;
