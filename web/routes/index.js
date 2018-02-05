@@ -193,7 +193,13 @@ router.get('/allvotes', function(req, res, next) {
     if(err){
       res.render('errorpage', {title: 'Error Page', message: 'Some error occurred'});
     };
-    res.render('allvotes', {title: 'Showing all votes', votes: doc});
+    const dataToSend = doc.map(indData => {
+      const productKey = indData.key;
+      const productName = config.product[productKey];
+      indData.productName = productName;
+      return indData;
+    });
+    res.render('allvotes', {title: 'Showing all votes', votes: dataToSend});
   });
 });
 
