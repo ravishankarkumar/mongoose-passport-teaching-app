@@ -195,7 +195,7 @@ router.get('/allvotes', function(req, res, next) {
     };
     const dataToSend = doc.map(indData => {
       const productKey = indData.voted;
-      const productName = config.product[productKey];
+      const productName = config.product[productKey].name;
       indData.productName = productName;
       return indData;
     });
